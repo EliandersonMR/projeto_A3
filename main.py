@@ -9,11 +9,11 @@ import sys
     
 
 # Função do algoritmo de Dijkstra
-def calcular_dijkstra(grafo, origem):
+def calcular_dijkstra(grafo, destino):
 
-  # Inicialização das distâncias com infinito, exceto a origem que é zero
+  # Inicialização das distâncias com infinito, exceto a destino que é zero
   distancias = {v: sys.maxsize for v in grafo}
-  distancias[origem] = 0
+  distancias[destino] = 0
 
   # Conjunto de vértices visitados
   visitados = set()
@@ -35,7 +35,7 @@ def calcular_dijkstra(grafo, origem):
           if distancias[vertice_atual] + peso < distancias[vizinho]:
               distancias[vizinho] = distancias[vertice_atual] + peso
 
-  # Retorna as distâncias mais curtas a partir da origem
+  # Retorna as distâncias mais curtas a partir da destino
   return distancias
 
 
@@ -69,10 +69,10 @@ grafo = {
 }
 
 # Ponto de partida
-origem = 'D'
+destino = 'D'
 
 # Chamando o algoritmo de Dijkstra para encontrar os caminhos mais curtos a partir de A
-caminhos_mais_curto = calcular_dijkstra(grafo, origem)
+caminhos_mais_curto = calcular_dijkstra(grafo, destino)
 print("-----------------------")
 centroProximo(caminhos_mais_curto)
 print("-----------------------")
