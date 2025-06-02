@@ -6,5 +6,3 @@ class Caminhao:
 
     def __repr__(self):
         return f"{self.tipo} - Carga máxima: {self.carga_maxima} - Quantidade: {self.quantidade}"
-
-    
