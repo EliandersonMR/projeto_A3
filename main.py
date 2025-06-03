@@ -31,7 +31,7 @@ def calcular_dijkstra(grafo, destino):
 
 # Encontrar o centro de distribuição mais próximo
 def centro_mais_proximo(caminhos):
-    centros = ['Recife', 'Brasília', 'Salvador', 'Rio de Janeiro']
+    centros = ['centro de Recife', 'centro de Brasília', 'centro de São Paulo', 'centro de Belém', 'Centro de Florianópolis']
     valores = {c: caminhos[c] for c in centros if c in caminhos}
     menor_centro = min(valores, key=valores.get)
     return menor_centro, valores[menor_centro]
@@ -46,20 +46,10 @@ def escolher_caminhao(qtd_carga):
         return Caminhao('Pequeno', 150, qtd_carga)
 
 def main():
-    # Grafo de exemplo
-    grafo = {
-        'Rio de Janeiro': {'A': 6, 'Brasília': 12},
-        'Salvador': {'B': 5, 'Recife': 8},
-        'Brasília': {'Rio de Janeiro': 12, 'C': 7, 'Salvador': 10},
-        'Recife': {'Salvador': 8, 'D': 4},
-        'A': {'Rio de Janeiro': 6, 'B': 3, 'C': 4},
-        'B': {'A': 3, 'Salvador': 5, 'E': 6},
-        'C': {'A': 4, 'Brasília': 7, 'D': 2},
-        'D': {'C': 2, 'Recife': 4, 'E': 3},
-        'E': {'B': 6, 'D': 3}
-    }
+   
+    grafo = GrafoRotas.getGrafo()
 
-    destino = 'D'
+    destino = 'Porto Alegre'
     caminhos = calcular_dijkstra(grafo, destino)
 
     print("\nCaminhos calculados a partir do destino:")
