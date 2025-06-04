@@ -1,12 +1,21 @@
 class Caminhao:
-    def __init__(self, tipo, carga_maxima, limiteHoras, entregas):
+    entregas = []
+    instancias = []
+    def __init__(self, tipo, carga_maxima, limiteHoras):
         self.tipo = tipo
         self.carga_maxima = carga_maxima
         self.limiteHoras = limiteHoras
-        self.entregas = []
+
+        Caminhao.instancias.append(self)
+        
 
     def adicionar_entrega(self, entrega):
         self.entregas.append(entrega)
+
+
+
+    
+    
 
 
     def __repr__(self):

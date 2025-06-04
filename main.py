@@ -48,9 +48,9 @@ def escolher_caminhao(qtd_carga):
 def main():
    
     grafo = GrafoRotas.getGrafo()
-
     destino = 'Porto Alegre'
     caminhos = calcular_dijkstra(grafo, destino)
+
 
     print("\nCaminhos calculados a partir do destino:")
     for k, v in caminhos.items():
