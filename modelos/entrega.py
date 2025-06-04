@@ -1,9 +1,8 @@
 class Entrega:
-    def __init__(self, origem, destino, quantidade, caminhao):
-        self.origem = origem
+    def __init__(self, destino, peso, prazoEntrega):
         self.destino = destino
-        self.quantidade = quantidade
-        self.caminhao = caminhao
+        self.peso = peso
+        self.prazoEntrega = prazoEntrega
 
     def __repr__(self):
-        return f"Entrega para {self.destino} - Prazo: {self.prazo} - Carga: {self.carga} unidades"
+        return f"Entrega para {self.destino} - Prazo: {self.prazo} - Carga: {self.peso}kg"
