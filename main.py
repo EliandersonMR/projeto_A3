@@ -46,6 +46,8 @@ def escolher_caminhao(qtd_carga):
         return Caminhao('Pequeno', 150, qtd_carga)
 
 def main():
+
+    
    
     grafo = GrafoRotas.getGrafo()
     destino = 'Porto Alegre'
