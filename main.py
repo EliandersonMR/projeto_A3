@@ -31,7 +31,7 @@ def calcular_dijkstra(grafo, destino):
 
 # Encontrar o centro de distribuição mais próximo
 def centro_mais_proximo(caminhos):
-    centros = ['centro de Recife', 'centro de Brasília', 'centro de São Paulo', 'centro de Belém', 'Centro de Florianópolis']
+    centros = CentroDistribuicao.getNomeCentros()
     valores = {c: caminhos[c] for c in centros if c in caminhos}
     menor_centro = min(valores, key=valores.get)
     return menor_centro, valores[menor_centro]

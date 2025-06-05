@@ -22,6 +22,21 @@ class GrafoRotas:
 
         return grafo
     
+
+    destinos = [
+    'macapá',
+    'Amazonas',
+    'Rio Branco',
+    'Altamira',
+    'piau',
+    'Salvador',
+    'Vitória',
+    'curitiba',
+    'Centro de Florianópolis',
+    'Porto Alegre',
+    'Cuiaba'
+]
+    
         
 
 
