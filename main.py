@@ -49,9 +49,12 @@ def main():
     GrafoRotas.exibeDestinos()
     try:
         destino = str(input('Digite o destino da entrega: '))
+        if destino not in GrafoRotas.getDestinos():
+            print('Destino não disponivel')
+            return
         peso = float(input('Pedo da entrega em kg: '))
         prazo = float(input('Prazo para entrega em horas: '))
-
+    
         entrega = Entrega(destino, peso, prazo)
         caminhao = Caminhao.escolher_caminhao(peso)
 
