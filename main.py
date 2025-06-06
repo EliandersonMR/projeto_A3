@@ -37,20 +37,30 @@ def centro_mais_proximo(caminhos):
     return menor_centro, valores[menor_centro]
 
 # Escolher o melhor caminhão baseado na quantidade de carga
-def escolher_caminhao(qtd_carga):
-    if qtd_carga > 300:
-        return Caminhao('Grande', 600, qtd_carga)
-    elif qtd_carga > 150:
-        return Caminhao('Médio', 300, qtd_carga)
-    else:
-        return Caminhao('Pequeno', 150, qtd_carga)
+
 
 def main():
 
-    
-   
     grafo = GrafoRotas.getGrafo()
-    destino = 'Porto Alegre'
+
+
+    print('Destinos')
+    #GrafoRotas.exibeDestinos()
+    try:
+        destino = str(input('Digite o destino da entrega: '))
+        peso = float(input('Pedo da entrega em kg: '))
+        prazo = float(input('Prazo para entrega em horas: '))
+
+        entrega = Entrega(destino, peso, prazo)
+        caminhao = Caminhao.escolher_caminhao(peso)
+
+        caminhao.entregas.append(entrega)
+    except:
+        ...
+    
+    
+    
+    
     caminhos = calcular_dijkstra(grafo, destino)
 
 
@@ -62,13 +72,12 @@ def main():
     print(f"\nCentro de distribuição mais próximo: {centro} ({distancia} km)")
 
     # Exemplo de entrega
-    qtd_carga = 280
-    caminhao = escolher_caminhao(qtd_carga)
+    
     print(f"\nCaminhão selecionado: {caminhao.tipo} com capacidade de {caminhao.carga_maxima} unidades")
 
-    entrega = Entrega(centro, destino, qtd_carga, caminhao)
-    print(f"\nEntrega criada: De {entrega.origem} para {entrega.destino}, "
-          f"{entrega.quantidade} unidades, usando caminhão {entrega.caminhao.tipo}")
+    
+    print(f"\nEntrega criada: De {centro} para {entrega.destino}, "
+          f"{entrega.peso} unidades, usando caminhão {caminhao.tipo}")
 
 if __name__ == "__main__":
     main()
