@@ -44,8 +44,9 @@ def main():
     grafo = GrafoRotas.getGrafo()
 
 
-    print('Destinos')
-    #GrafoRotas.exibeDestinos()
+    print('Destinos Disponiveis')
+    print()
+    GrafoRotas.exibeDestinos()
     try:
         destino = str(input('Digite o destino da entrega: '))
         peso = float(input('Pedo da entrega em kg: '))

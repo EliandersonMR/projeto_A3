@@ -23,21 +23,28 @@ class GrafoRotas:
         return grafo
     
 
-    destinos = [
-    'macapá',
-    'Amazonas',
-    'Rio Branco',
-    'Altamira',
-    'piau',
-    'Salvador',
-    'Vitória',
-    'curitiba',
-    'Centro de Florianópolis',
-    'Porto Alegre',
-    'Cuiaba'
-]
+    def exibeDestinos():
+        destinos = [
+            'macapá',
+            'Amazonas',
+            'Rio Branco',
+            'Altamira',
+            'piau',
+            'Salvador',
+            'Vitória',
+            'curitiba',
+            'Centro de Florianópolis',
+            'Porto Alegre',
+            'Cuiaba'
+        ]
+
+        for destino in destinos:
+            print(destino)
+    
+
     
     
+
     
         
 
