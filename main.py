@@ -55,15 +55,20 @@ def main():
         peso = float(input('Pedo da entrega em kg: '))
         prazo = float(input('Prazo para entrega em horas: '))
     
-        entrega = Entrega(destino, peso, prazo)
-        caminhao = Caminhao.escolher_caminhao(peso)
-
-        caminhao.entregas.append(entrega)
+        
     except:
         ...
     
+    import time
+    inicio = time.time()
     
     
+    
+    
+    entrega = Entrega(destino, peso, prazo)
+    caminhao = Caminhao.escolher_caminhao(peso)
+
+    caminhao.entregas.append(entrega)
     
     caminhos = calcular_dijkstra(grafo, destino)
 
@@ -82,6 +87,9 @@ def main():
     
     print(f"\nEntrega criada: De {centro} para {entrega.destino}, "
           f"{entrega.peso} unidades, usando caminhão {caminhao.tipo}")
+    
+    fim = time.time()
+    print(f"\nTempo total de execução: {fim - inicio:.4f} segundos")
 
 if __name__ == "__main__":
     main()
