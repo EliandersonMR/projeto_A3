@@ -41,7 +41,12 @@ class GrafoRotas:
         
         for destino in GrafoRotas.destinos:
             print(destino)
+
+    def getDestinos():
+        return GrafoRotas.destinos
     
+
+
 
     
     
