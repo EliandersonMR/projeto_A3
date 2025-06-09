@@ -3,9 +3,6 @@ from modelos.entrega import Entrega
 from modelos.centro import CentroDistribuicao
 from modelos.grafo import GrafoRotas
 import sys
-import time    
-    
-
 
 # Algoritmo de Dijkstra
 def calcular_dijkstra(grafo, destino):
@@ -63,6 +60,7 @@ def main():
         except Exception as e:
             print(f"Erro na entrada: {e}")
 
+    import time
     inicio = time.time()
 
     for entrega in entregas:

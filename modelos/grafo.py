@@ -1,38 +1,39 @@
 class GrafoRotas:
     destinos = [
-            'macapá',
-            'Amazonas',
-            'Rio Branco',
-            'Altamira',
-            'piau',
-            'Salvador',
-            'Vitória',
-            'curitiba',
-            'Centro de Florianópolis',
-            'Porto Alegre',
-            'Cuiaba'
-        ]
+        'macapá',
+        'amazonas',
+        'rio branco',
+        'altamira',
+        'piaui',
+        'salvador',
+        'vitória',
+        'curitiba',
+        'porto alegre',
+        'cuiaba'
+    ]
+
 
         
     def getGrafo():
 
         grafo = {
-        'macapá': {'centro de Belém': 527, 'Amazonas': 1688},
-        'Amazonas': {'macapá': 1688, 'Altamira': 1264, 'Rio Branco': 760},
-        'Rio Branco': {'Amazonas': 760, 'Altamira': 2248, 'Cuiaba': 1966},
-        'Altamira': {'Amazonas': 1264, 'Rio Branco': 2248, 'macapá': 1688, 'centro de Belém': 816, 'piau': 1370, 'centro de Brasília': 1226, 'Cuiaba': 1889},
-        'centro de Belém': {'macapá': 527, 'Altamira': 816, 'piau': 950, 'centro de Brasília': 1007},
-        'piau': {'centro de Belém': 950, 'Altamira': 1370, 'centro de Recife': 1170, 'Salvador': 1040},
-        'centro de Recife': {'piau': 1170, 'Salvador': 806},
-        'Salvador': {'centro de Recife': 806, 'piau': 1040, 'Vitória': 1088},
-        'Vitória': {'Salvador': 1088, 'centro de Brasília': 1244, 'centro de São Paulo': 870},
-        'centro de São Paulo': {'Vitória': 870, 'Cuiaba': 1523, 'curitiba': 402},
-        'curitiba': {'centro de São Paulo': 402, 'Centro de Florianópolis': 315},
-        'Centro de Florianópolis': {'curitiba': 315, 'Porto Alegre': 462},
-        'Porto Alegre': {'Centro de Florianópolis': 462},
-        'Cuiaba': {'Rio Branco': 1966, 'Altamira': 1889, 'centro de Brasília': 1029, 'centro de São Paulo': 1523},
-        'centro de Brasília': {'Cuiaba': 1029, 'Altamira': 1226, 'centro de Belém': 1007, 'Vitória': 1244}
+                'macapá': {'centro de belém': 527, 'amazonas': 1688},
+                'amazonas': {'macapá': 1688, 'altamira': 1264, 'rio branco': 760},
+                'rio branco': {'amazonas': 760, 'altamira': 2248, 'cuiaba': 1966},
+                'altamira': {'amazonas': 1264, 'rio branco': 2248, 'macapá': 1688, 'centro de belém': 816, 'piaui': 1370, 'centro de brasília': 1226, 'cuiaba': 1889},
+                'centro de belém': {'macapá': 527, 'altamira': 816, 'piaui': 950, 'centro de brasília': 1007},
+                'piaui': {'centro de belém': 950, 'altamira': 1370, 'centro de recife': 1170, 'salvador': 1040},
+                'centro de recife': {'piaui': 1170, 'salvador': 806},
+                'salvador': {'centro de recife': 806, 'piaui': 1040, 'vitória': 1088},
+                'vitória': {'salvador': 1088, 'centro de brasília': 1244, 'centro de são paulo': 870},
+                'centro de são paulo': {'vitória': 870, 'cuiaba': 1523, 'curitiba': 402},
+                'curitiba': {'centro de são paulo': 402, 'centro de florianópolis': 315},
+                'centro de florianópolis': {'curitiba': 315, 'porto alegre': 462},
+                'porto alegre': {'centro de florianópolis': 462},
+                'cuiaba': {'rio branco': 1966, 'altamira': 1889, 'centro de brasília': 1029, 'centro de são paulo': 1523},
+                'centro de brasília': {'cuiaba': 1029, 'altamira': 1226, 'centro de belém': 1007, 'vitória': 1244}
         }
+
 
         return grafo
     
@@ -43,8 +44,11 @@ class GrafoRotas:
             print(destino)
 
     def getDestinos():
+        #return [destino.lower() for destino in GrafoRotas.destinos]
         return GrafoRotas.destinos
-    
+
+
+
 
 
 
