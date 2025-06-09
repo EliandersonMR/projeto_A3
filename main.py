@@ -48,20 +48,20 @@ def main():
     entregas = []
     while True:
         try:
-            destino = input('\nDigite o destino da entrega (ou "sair" para finalizar): ').strip().lower()
+            destino = input('\nDigite o destino da para uma nova entrega (ou "sair" para calcular a rota): ').strip().lower()
             if destino == "sair":
                 break
             if destino not in GrafoRotas.getDestinos():
                 print('Destino não disponível.')
                 continue
-
+            
             peso = float(input('Peso da entrega em kg: '))
             prazo = float(input('Prazo para entrega em horas: '))
-
+            
             entrega = Entrega(destino, peso, prazo)
             entregas.append(entrega)
         except Exception as e:
-            print(f"Erro na entrada: {e}")
+            print(f"Erro na entrada - dado invalido")
 
     inicio = time.time()
 
