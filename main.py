@@ -4,33 +4,23 @@ from modelos.centro import CentroDistribuicao
 from modelos.grafo import GrafoRotas
 import sys
 import time    
-    
+import heapq
 
 
 # Algoritmo de Dijkstra
-def calcular_dijkstra(grafo, destino):
-    distancias = {v: sys.maxsize for v in grafo}
-    distancias[destino] = 0
-    visitados = set()
+def dijkstraHeap(grafo, destino):
+    dist = {v: sys.maxsize for v in grafo}
+    dist[destino] = 0
+    heap = [(0, destino)]
+    while heap:
+        d_atual, atual = heapq.heappop(heap)
+        for vizinho, peso in grafo[atual].items():
+            if d_atual + peso < dist[vizinho]:
+                dist[vizinho] = d_atual + peso
+                heapq.heappush(heap, (dist[vizinho], vizinho))
+    return dist
 
-    while visitados != set(distancias):
-        vertice_atual = min(
-            (v for v in grafo if v not in visitados),
-            key=lambda v: distancias[v],
-            default=None
-        )
 
-        if vertice_atual is None:
-            break
-
-        visitados.add(vertice_atual)
-
-        for vizinho, peso in grafo[vertice_atual].items():
-            nova_dist = distancias[vertice_atual] + peso
-            if nova_dist < distancias[vizinho]:
-                distancias[vizinho] = nova_dist
-
-    return distancias
 
 # Encontrar o centro de distribuição mais próximo
 def centro_mais_proximo(caminhos):
@@ -63,10 +53,10 @@ def main():
         except Exception as e:
             print(f"Erro na entrada - dado invalido")
 
-    inicio = time.time()
+    inicio = time.perf_counter()
 
     for entrega in entregas:
-        caminhos = calcular_dijkstra(grafo, entrega.destino)
+        caminhos = dijkstraHeap(grafo, entrega.destino)
         centro, distancia = centro_mais_proximo(caminhos)
         caminhao = Caminhao.escolher_caminhao(entrega.peso)
         caminhao.entregas.append(entrega)
@@ -76,8 +66,8 @@ def main():
         print(f"Caminhão selecionado: {caminhao.tipo} (capacidade: {caminhao.carga_maxima}kg)")
         print(f"Entrega registrada: {centro} -> {entrega.destino}\n")
 
-    fim = time.time()
-    print(f"\nTempo total de execução: {fim - inicio:.4f} segundos")
+    fim = time.perf_counter()
+    print(f"\nTempo total de execução: {fim - inicio:.8f} segundos")
 
 if __name__ == "__main__":
     main()
